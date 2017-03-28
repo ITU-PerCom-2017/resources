@@ -1,6 +1,6 @@
 # Chirp: Plant Watering Sensor
 
-https://wemakethings.net/chirp/
+Check out the manufacturer documentation: https://wemakethings.net/chirp/
 
 This module has three different sensors: temperature, light and soil moisture.a
 Chirp acts is a I2C slave, you can get its values from the LoPy (I2C master).
@@ -26,3 +26,48 @@ Every group should have one of these.
   more on this technique
   [here](https://wemakethings.net/2012/09/26/capacitance_measurement/)
 - 290-310 in free air, 251 in medium dry soil, 672 in water 
+
+## I2C and Byte Unpacking
+
+**Note: The repl-console is a great tool to interactively try out your code.**
+
+After you have connected the sensor like shown on the pictures,
+you can scan for devices on the I2C bus to get the sensor's ID:
+
+```Python
+from machine import I2C
+i2c = I2C(0, I2C.MASTER, baudrate=10000)
+i2c.scan()
+```
+
+This should return you the default address of the chirp sensor: `0x20` (`32`).
+
+Knowing the address, you can get the actual sensor data.
+Capacitive register (moisture): `0`
+Temperature register: `5`
+Light register: `4`
+
+
+```Python
+from machine import I2C
+i2c = I2C(0, I2C.MASTER, baudrate=10000)
+a = i2c.readfrom_mem(0x20, register, 2)
+```
+
+`a` is a bytearray. You need to unpack it to get a number.
+In python you can use the struct module for that:
+
+
+```Python
+from struct import unpack
+a = bytearray(b'\x01\r')
+v = unpack('<H', a)[0]  # Should return 3329
+```
+
+Now that we have a number, we can convert it to the actual value, in this case
+the temperature:
+
+```Python
+v = 3329
+temperature = (v >> 8) + ((v & 0xFF) << 8)  # Should return 269
+```
