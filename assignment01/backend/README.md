@@ -24,6 +24,9 @@ TTN has a quickstart page on how to get started with MQTT and how to subscribe t
 messages of an application.
 Try to follow [the steps](https://www.thethingsnetwork.org/docs/applications/mqtt/quick-start.html).
 
+Note: our application ID is: dk-cph-itu-pitlab-01
+You can find your Access Key when you scroll down on TTN: "ttn-account-v2...."
+
 
 ## Our Backend
 
