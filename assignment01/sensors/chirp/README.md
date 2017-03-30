@@ -51,15 +51,25 @@ This should return you the default address of the chirp sensor: `0x20` (`32`).
 
 Knowing the address, you can get the actual sensor data.
 Capacitive register (moisture): `0`
+
 Temperature register: `5`
+
 Light register: `4`
+
 
 
 ```Python
 from machine import I2C
 i2c = I2C(0, I2C.MASTER, baudrate=10000)
-register = 5  #for temperature
+register = 5  # for temperature
 a = i2c.readfrom_mem(0x20, register, 2)
+```
+
+Note: For the light sensor you need to first request to "take a measurement", sleep and then the value!
+
+```Python
+i2c.writeto(0x20, 0x03)
+...
 ```
 
 `a` is a bytearray. You need to unpack it to get a number.
