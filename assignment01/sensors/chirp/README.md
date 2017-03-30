@@ -58,6 +58,7 @@ Light register: `4`
 ```Python
 from machine import I2C
 i2c = I2C(0, I2C.MASTER, baudrate=10000)
+register = 5  #for temperature
 a = i2c.readfrom_mem(0x20, register, 2)
 ```
 
