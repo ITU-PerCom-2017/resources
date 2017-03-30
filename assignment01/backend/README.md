@@ -22,7 +22,7 @@ or read more on it on its [wikipedia page](https://en.wikipedia.org/wiki/MQTT).
 
 TTN has a quickstart page on how to get started with MQTT and how to subscribe to
 messages of an application.
-Try to follow the steps.
+Try to follow [the steps](https://www.thethingsnetwork.org/docs/applications/mqtt/quick-start.html).
 
 
 ## Our Backend
