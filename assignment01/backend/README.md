@@ -66,8 +66,8 @@ light = 15356
 light_id = 0xCC
 bytes = []
 bytes[0] = light_id
-bytes[1] = (myVal & 0xFF00) >> 8
-bytes[2] = (myVal & 0x00FF)
+bytes[1] = (light & 0xFF00) >> 8
+bytes[2] = (light & 0x00FF)
 ```
 
 We use one byte to identify the sensor type:
