@@ -1,6 +1,7 @@
 # Chirp: Plant Watering Sensor
 
 Check out the manufacturer documentation: https://wemakethings.net/chirp/
+Details, pcb, sensors: https://github.com/Miceuz/i2c-moisture-sensor
 
 This module has three different sensors: temperature, light and soil moisture.a
 Chirp acts is a I2C slave, you can get its values from the LoPy (I2C master).
@@ -13,10 +14,16 @@ Every group should have one of these.
 - thermistor for measurement
 - 10th of degrees in Celsius (e.g., 260 is 26 C)
 
+Here s the thermistor, 
+marked "TH1" on the pcb:
+http://www.murata.com/en-eu/products/productdetail?partno=NCP18XH103F03RB
+
 
 ## Light
 
-- uses a LED for measurement
+- uses a LED for measurement, marked "D3" on the pcb.
+http://uk.farnell.com/kingbright/kp-1608surck/led-0603-230mcd-red/dp/2290329
+
 - values range from 0 to 65535
 - Note: 0 is maximal light and 65535 is total darkness
 
