@@ -68,7 +68,7 @@ a = i2c.readfrom_mem(0x20, register, 2)
 Note: For the light sensor you need to first request to "take a measurement", sleep and then the value!
 
 ```Python
-i2c.writeto(0x20, 0x03)
+i2c.writeto(0x20, '\x03')
 ...
 ```
 
