@@ -64,7 +64,7 @@ E.g., for sending a light value this would be:
 ```python
 light = 15356
 light_id = 0xCC
-bytes = []
+bytes = bytearray(3)
 bytes[0] = light_id
 bytes[1] = (light & 0xFF00) >> 8
 bytes[2] = (light & 0x00FF)
