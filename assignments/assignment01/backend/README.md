@@ -75,6 +75,8 @@ We use one byte to identify the sensor type:
 - Chirp/Temperature   0xAA
 - Chirp/Moisture      0xBB
 - Chirp/Light         0xCC
+- Dust                0x01
+- PIR                 0x02
 
 To add sensor data from a sensor to the backend, you need to follow that protocol.
 Please send an email or make a pull request to add another type of sensor (then
